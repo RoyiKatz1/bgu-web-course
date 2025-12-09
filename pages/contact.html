@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixology Hub - צור קשר</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="logo">
+                    <h1>Mixology Hub</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="home.html" class="nav__link">בית</a></li>
+                        <li><a href="workshops.html" class="nav__link">סדנאות</a></li>
+                        <li><a href="recipes.html" class="nav__link">מתכונים</a></li>
+                        <li><a href="book.html" class="nav__link">הזמנה</a></li>
+                        <li><a href="contact.html" class="nav__link nav__link--active">צור קשר</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">צור קשר</h1>
+                <p class="page-subtitle">נשמח לענות על כל שאלה או בקשה שלכם</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <h2 class="section-title">שלחו לנו הודעה</h2>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="contactName" class="form-label">שם <span class="required">*</span></label>
+                                <input type="text" id="contactName" name="contactName" class="form-input" required>
+                                <span class="error-message" id="contactNameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactPhone" class="form-label">מספר טלפון <span class="required">*</span></label>
+                                <input type="tel" id="contactPhone" name="contactPhone" class="form-input" placeholder="050-1234567" required>
+                                <span class="error-message" id="contactPhoneError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject" class="form-label">נושא</label>
+                                <input type="text" id="subject" name="subject" class="form-input" placeholder="אופציונלי">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">הודעה <span class="required">*</span></label>
+                                <textarea id="message" name="message" class="form-input form-textarea" rows="6" placeholder="כתבו את הודעתכם כאן..." required></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn--primary btn--full">שלח הודעה</button>
+                            </div>
+
+                            <div id="contactFormMessage" class="form-message"></div>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <h2 class="section-title">פרטי יצירת קשר</h2>
+                        <div class="contact-info__item">
+                            <h3>כתובת</h3>
+                            <p>רחוב הקוקטיילים 15<br>תל אביב, ישראל</p>
+                        </div>
+                        <div class="contact-info__item">
+                            <h3>טלפון</h3>
+                            <p><a href="tel:+972551234567">055-123-4567</a></p>
+                        </div>
+                        <div class="contact-info__item">
+                            <h3>אימייל</h3>
+                            <p><a href="mailto:info@mixologyhub.com">info@mixologyhub.com</a></p>
+                        </div>
+                        <div class="contact-info__item">
+                            <h3>שעות פעילות</h3>
+                            <p>ראשון - חמישי: 10:00 - 22:00<br>שישי: 10:00 - 15:00<br>שבת: סגור</p>
+                        </div>
+                        <div class="contact-info__social">
+                            <h3>עקבו אחרינו</h3>
+                            <div class="footer__social">
+                                <a href="#" class="footer__social-link">פייסבוק</a>
+                                <a href="#" class="footer__social-link">אינסטגרם</a>
+                                <a href="#" class="footer__social-link">טוויטר</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>Mixology Hub</h3>
+                    <p>שלוט באמנות הקוקטיילים</p>
+                </div>
+                <div class="footer__section">
+                    <h4>צור קשר</h4>
+                    <p>אימייל: info@mixologyhub.com</p>
+                    <p>טלפון: (555) 123-4567</p>
+                </div>
+                <div class="footer__section">
+                    <h4>עקבו אחרינו</h4>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">פייסבוק</a>
+                        <a href="#" class="footer__social-link">אינסטגרם</a>
+                        <a href="#" class="footer__social-link">טוויטר</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2025 Mixology Hub. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            clearContactErrors();
+            
+            // Get form values
+            const name = document.getElementById('contactName').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            let isValid = true;
+            
+            // Validate name
+            if (name.length < 2) {
+                showError('contactNameError', 'שם חייב להכיל לפחות 2 תווים');
+                isValid = false;
+            }
+            
+            // Validate phone
+            const phoneRegex = /^0\d{1,2}-?\d{7}$/;
+            if (!phoneRegex.test(phone)) {
+                showError('contactPhoneError', 'מספר טלפון לא תקין');
+                isValid = false;
+            }
+            
+            // Validate message
+            if (message.length < 10) {
+                showError('messageError', 'הודעה חייבת להכיל לפחות 10 תווים');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simulate form submission
+                const messageDiv = document.getElementById('contactFormMessage');
+                messageDiv.className = 'form-message form-message--success';
+                messageDiv.textContent = 'תודה! הודעתכם התקבלה בהצלחה. נחזור אליכם בהקדם האפשרי.';
+                
+                // Reset form
+                this.reset();
+            }
+        });
+        
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+        }
+        
+        function clearContactErrors() {
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(el => el.textContent = '');
+            const messageDiv = document.getElementById('contactFormMessage');
+            messageDiv.textContent = '';
+            messageDiv.className = 'form-message';
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixology Hub - הזמנה</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="logo">
+                    <h1>Mixology Hub</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="home.html" class="nav__link">בית</a></li>
+                        <li><a href="workshops.html" class="nav__link">סדנאות</a></li>
+                        <li><a href="recipes.html" class="nav__link">מתכונים</a></li>
+                        <li><a href="book.html" class="nav__link nav__link--active">הזמנה</a></li>
+                        <li><a href="contact.html" class="nav__link">צור קשר</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">הזמנת סדנה</h1>
+                <p class="page-subtitle">מלאו את הפרטים הבאים כדי להזמין מקום בסדנה</p>
+            </div>
+        </section>
+
+        <section class="booking-form-section">
+            <div class="container">
+                <div class="form-container">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">שם מלא <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" class="form-input" required>
+                            <span class="error-message" id="fullNameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">מספר טלפון <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="050-1234567" required>
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">אימייל <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="example@email.com" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="participants" class="form-label">מספר משתתפים <span class="required">*</span></label>
+                            <input type="number" id="participants" name="participants" class="form-input" min="1" max="30" required>
+                            <span class="error-message" id="participantsError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workshop" class="form-label">בחירת סדנה <span class="required">*</span></label>
+                            <select id="workshop" name="workshop" class="form-input" required>
+                                <option value="">בחרו סדנה</option>
+                                <option value="classic">סדנת קוקטיילים קלאסיים</option>
+                                <option value="modern">סדנת קוקטיילים מודרניים</option>
+                                <option value="non-alcoholic">סדנת קוקטיילים ללא אלכוהול</option>
+                                <option value="advanced">סדנת קוקטיילים למתקדמים</option>
+                                <option value="couples">סדנת קוקטיילים לזוגות</option>
+                            </select>
+                            <span class="error-message" id="workshopError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date" class="form-label">תאריך רצוי <span class="required">*</span></label>
+                            <input type="date" id="date" name="date" class="form-input" required>
+                            <span class="error-message" id="dateError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specialRequests" class="form-label">בקשות מיוחדות</label>
+                            <textarea id="specialRequests" name="specialRequests" class="form-input form-textarea" rows="4" placeholder="השאירו הודעה אם יש לכם בקשות מיוחדות..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn--primary btn--full">אשר הזמנה</button>
+                        </div>
+
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>Mixology Hub</h3>
+                    <p>שלוט באמנות הקוקטיילים</p>
+                </div>
+                <div class="footer__section">
+                    <h4>צור קשר</h4>
+                    <p>אימייל: info@mixologyhub.com</p>
+                    <p>טלפון: (555) 123-4567</p>
+                </div>
+                <div class="footer__section">
+                    <h4>עקבו אחרינו</h4>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">פייסבוק</a>
+                        <a href="#" class="footer__social-link">אינסטגרם</a>
+                        <a href="#" class="footer__social-link">טוויטר</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2025 Mixology Hub. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+
+        // Get workshop from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const workshopParam = urlParams.get('workshop');
+        if (workshopParam) {
+            document.getElementById('workshop').value = workshopParam;
+        }
+
+        // Form validation and submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            clearErrors();
+            
+            // Get form values
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const participants = parseInt(document.getElementById('participants').value);
+            const workshop = document.getElementById('workshop').value;
+            const date = document.getElementById('date').value;
+            
+            let isValid = true;
+            
+            // Validate full name
+            if (fullName.length < 2) {
+                showError('fullNameError', 'שם חייב להכיל לפחות 2 תווים');
+                isValid = false;
+            }
+            
+            // Validate phone
+            const phoneRegex = /^0\d{1,2}-?\d{7}$/;
+            if (!phoneRegex.test(phone)) {
+                showError('phoneError', 'מספר טלפון לא תקין');
+                isValid = false;
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('emailError', 'כתובת אימייל לא תקינה');
+                isValid = false;
+            }
+            
+            // Validate participants
+            if (participants < 1 || participants > 30) {
+                showError('participantsError', 'מספר משתתפים חייב להיות בין 1 ל-30');
+                isValid = false;
+            }
+            
+            // Validate workshop
+            if (!workshop) {
+                showError('workshopError', 'אנא בחרו סדנה');
+                isValid = false;
+            }
+            
+            // Validate date
+            if (!date) {
+                showError('dateError', 'אנא בחרו תאריך');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simulate form submission
+                const messageDiv = document.getElementById('formMessage');
+                messageDiv.className = 'form-message form-message--success';
+                messageDiv.textContent = `ההזמנה התקבלה בהצלחה! מקומכם שמור ל-${date}. נשלח אליכם אימייל אישור בקרוב.`;
+                
+                // Reset form
+                this.reset();
+                document.getElementById('date').setAttribute('min', today);
+            }
+        });
+        
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+        }
+        
+        function clearErrors() {
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(el => el.textContent = '');
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.textContent = '';
+            messageDiv.className = 'form-message';
+        }
+    </script>
+</body>
+</html>
+
