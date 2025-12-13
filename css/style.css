@@ -1,3 +1,16 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 64px;
+}
+
 .header__content {
     display: flex;
     gap: 48px;
@@ -22,6 +35,10 @@
             }
         }
     }
+}
+
+main {
+    flex: 1;
 }
 
 .footer {
