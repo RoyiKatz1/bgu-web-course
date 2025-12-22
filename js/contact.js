@@ -28,12 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 isValid = false;
             }
             
-            // Validate message
-            if (message.length < 10) {
-                showError('messageError', 'הודעה חייבת להכיל לפחות 10 תווים');
-                isValid = false;
-            }
-            
             if (isValid) {
                 // Simulate form submission
                 const messageDiv = document.getElementById('contactFormMessage');

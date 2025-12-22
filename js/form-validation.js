@@ -6,8 +6,11 @@
  * @returns {boolean} - True if valid, false otherwise
  */
 function validatePhone(phone) {
-    const phoneRegex = /^0\d{1,2}-?\d{7}$/;
-    return phoneRegex.test(phone);
+	// Remove any spaces and dashes for validation
+	const cleanPhone = phone.replace(/[\s-]/g, "");
+	// Must be exactly 10 digits starting with 0
+	const phoneRegex = /^0\d{9}$/;
+	return phoneRegex.test(cleanPhone);
 }
 
 /**
@@ -16,8 +19,8 @@ function validatePhone(phone) {
  * @returns {boolean} - True if valid, false otherwise
  */
 function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	return emailRegex.test(email);
 }
 
 /**
@@ -26,10 +29,10 @@ function validateEmail(email) {
  * @param {string} message - Error message to display
  */
 function showError(elementId, message) {
-    const errorElement = document.getElementById(elementId);
-    if (errorElement) {
-        errorElement.textContent = message;
-    }
+	const errorElement = document.getElementById(elementId);
+	if (errorElement) {
+		errorElement.textContent = message;
+	}
 }
 
 /**
@@ -37,15 +40,14 @@ function showError(elementId, message) {
  * @param {string} messageElementId - ID of the form message element (optional)
  */
 function clearErrors(messageElementId) {
-    const errorElements = document.querySelectorAll('.error-message');
-    errorElements.forEach(el => el.textContent = '');
-    
-    if (messageElementId) {
-        const messageDiv = document.getElementById(messageElementId);
-        if (messageDiv) {
-            messageDiv.textContent = '';
-            messageDiv.className = 'form-message';
-        }
-    }
-}
+	const errorElements = document.querySelectorAll(".error-message");
+	errorElements.forEach((el) => (el.textContent = ""));
 
+	if (messageElementId) {
+		const messageDiv = document.getElementById(messageElementId);
+		if (messageDiv) {
+			messageDiv.textContent = "";
+			messageDiv.className = "form-message";
+		}
+	}
+}
