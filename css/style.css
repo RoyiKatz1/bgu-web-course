@@ -53,7 +53,6 @@ body {
     display: flex;
     gap: 48px;
     align-items: center;
-    /* justify-content: space-between; */
     color: var(--white);
 }
 
@@ -61,7 +60,7 @@ body {
     margin: 0;
     font-size: 24px;
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .nav__list {
@@ -73,7 +72,7 @@ body {
 }
 
 .nav__link {
-    color: var(--white);
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
