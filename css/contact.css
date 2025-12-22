@@ -77,6 +77,10 @@
     justify-content: flex-start;
 }
 
+.contact-info__social .footer__social-link {
+    color: var(--primary-color);
+}
+
 /* Responsive Design */
 @media (max-width: 968px) {
     .contact-content {
