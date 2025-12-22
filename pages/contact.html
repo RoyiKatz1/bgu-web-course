@@ -131,63 +131,8 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Clear previous errors
-            clearContactErrors();
-            
-            // Get form values
-            const name = document.getElementById('contactName').value.trim();
-            const phone = document.getElementById('contactPhone').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            let isValid = true;
-            
-            // Validate name
-            if (name.length < 2) {
-                showError('contactNameError', 'שם חייב להכיל לפחות 2 תווים');
-                isValid = false;
-            }
-            
-            // Validate phone
-            const phoneRegex = /^0\d{1,2}-?\d{7}$/;
-            if (!phoneRegex.test(phone)) {
-                showError('contactPhoneError', 'מספר טלפון לא תקין');
-                isValid = false;
-            }
-            
-            // Validate message
-            if (message.length < 10) {
-                showError('messageError', 'הודעה חייבת להכיל לפחות 10 תווים');
-                isValid = false;
-            }
-            
-            if (isValid) {
-                // Simulate form submission
-                const messageDiv = document.getElementById('contactFormMessage');
-                messageDiv.className = 'form-message form-message--success';
-                messageDiv.textContent = 'תודה! הודעתכם התקבלה בהצלחה. נחזור אליכם בהקדם האפשרי.';
-                
-                // Reset form
-                this.reset();
-            }
-        });
-        
-        function showError(elementId, message) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.textContent = message;
-        }
-        
-        function clearContactErrors() {
-            const errorElements = document.querySelectorAll('.error-message');
-            errorElements.forEach(el => el.textContent = '');
-            const messageDiv = document.getElementById('contactFormMessage');
-            messageDiv.textContent = '';
-            messageDiv.className = 'form-message';
-        }
-    </script>
+    <script src="../js/form-validation.js"></script>
+    <script src="../js/contact.js"></script>
 </body>
 </html>
 
