@@ -66,6 +66,7 @@ main {
     display: none;
 }
 
+
 .hero__content {
     position: relative;
     z-index: 1;
@@ -178,6 +179,27 @@ main {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .header {
+        position: relative;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../assets/images/hero_image.jpg') center/cover no-repeat;
+        background-size: cover;
+        background-position: center;
+        transform: scaleY(-1) scaleX(-1);
+        filter: blur(8px);
+        z-index: -1;
+    }
+
     .hero {
         min-height: 500px;
         padding: 60px 20px;
