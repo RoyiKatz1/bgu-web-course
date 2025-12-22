@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get form values
             const name = document.getElementById('contactName').value.trim();
             const phone = document.getElementById('contactPhone').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
             const message = document.getElementById('message').value.trim();
             
             let isValid = true;
@@ -25,6 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Validate phone
             if (!validatePhone(phone)) {
                 showError('contactPhoneError', 'מספר טלפון לא תקין');
+                isValid = false;
+            }
+            
+            // Validate email
+            if (!validateEmail(email)) {
+                showError('contactEmailError', 'כתובת אימייל לא תקינה');
                 isValid = false;
             }
             
