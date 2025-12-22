@@ -1,10 +1,5 @@
 // Shared form validation utilities
 
-/**
- * Validates Israeli phone number format
- * @param {string} phone - Phone number to validate
- * @returns {boolean} - True if valid, false otherwise
- */
 function validatePhone(phone) {
 	// Remove any spaces and dashes for validation
 	const cleanPhone = phone.replace(/[\s-]/g, "");
@@ -13,21 +8,11 @@ function validatePhone(phone) {
 	return phoneRegex.test(cleanPhone);
 }
 
-/**
- * Validates email format
- * @param {string} email - Email to validate
- * @returns {boolean} - True if valid, false otherwise
- */
 function validateEmail(email) {
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 	return emailRegex.test(email);
 }
 
-/**
- * Shows an error message for a form field
- * @param {string} elementId - ID of the error element
- * @param {string} message - Error message to display
- */
 function showError(elementId, message) {
 	const errorElement = document.getElementById(elementId);
 	if (errorElement) {
@@ -35,10 +20,6 @@ function showError(elementId, message) {
 	}
 }
 
-/**
- * Clears all error messages in a form
- * @param {string} messageElementId - ID of the form message element (optional)
- */
 function clearErrors(messageElementId) {
 	const errorElements = document.querySelectorAll(".error-message");
 	errorElements.forEach((el) => (el.textContent = ""));
