@@ -53,7 +53,7 @@ body {
     display: flex;
     gap: 48px;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     color: var(--white);
 }
 

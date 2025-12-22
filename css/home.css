@@ -38,16 +38,28 @@ main {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: url('../assets/images/hero_image.jpg') center/cover no-repeat;
-    background-size: cover;
-    background-position: center;
+    justify-content: flex-end;
     color: var(--white);
-    text-align: center;
+    text-align: right;
     padding: 80px 20px;
     margin-top: -80px;
     padding-top: 180px;
     margin-bottom: 60px;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/images/hero_image.jpg') center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scaleX(-1);
+    z-index: 0;
 }
 
 .hero__overlay {
@@ -56,9 +68,10 @@ main {
 
 .hero__content {
     position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0;
+    padding-right: 40px;
 }
 
 .hero__title {
@@ -79,19 +92,21 @@ main {
 
 .hero__buttons {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .hero__buttons .btn {
-    padding: 16px 40px;
+    width: 100%;
+    padding: 16px 16px;
     font-size: 18px;
     font-weight: 600;
     border-radius: 8px;
-    min-width: 200px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .hero__buttons .btn--primary {
@@ -166,6 +181,13 @@ main {
     .hero {
         min-height: 500px;
         padding: 60px 20px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero__content {
+        padding-right: 0;
+        max-width: 100%;
     }
 
     .hero__title {
@@ -179,6 +201,7 @@ main {
     .hero__buttons {
         flex-direction: column;
         align-items: stretch;
+        justify-content: center;
     }
 
     .hero__buttons .btn {
