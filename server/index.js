@@ -14,9 +14,32 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Basic route
+// Serve static files from client folder (CSS, JS, images)
+app.use(express.static(path.join(__dirname, "../client")));
+
+// Routes for pages
 app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "../client/pages/home.html"));
+});
+
+app.get("/home", (req, res) => {
+	res.sendFile(path.join(__dirname, "../client/pages/home.html"));
+});
+
+app.get("/workshops", (req, res) => {
+	res.sendFile(path.join(__dirname, "../client/pages/workshops.html"));
+});
+
+app.get("/recipes", (req, res) => {
+	res.sendFile(path.join(__dirname, "../client/pages/recipes.html"));
+});
+
+app.get("/book", (req, res) => {
+	res.sendFile(path.join(__dirname, "../client/pages/book.html"));
+});
+
+app.get("/contact", (req, res) => {
+	res.sendFile(path.join(__dirname, "../client/pages/contact.html"));
 });
 
 // Health check endpoint
