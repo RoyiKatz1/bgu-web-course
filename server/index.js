@@ -45,6 +45,10 @@ app.get("/contact", (req, res) => {
 	res.sendFile(path.join(__dirname, "../client/pages/contact.html"));
 });
 
+app.get("/api-test", (req, res) => {
+	res.sendFile(path.join(__dirname, "../client/pages/api-test.html"));
+});
+
 // API Routes
 app.use("/api/workshops", workshopsRouter);
 app.use("/api/bookings", bookingsRouter);
