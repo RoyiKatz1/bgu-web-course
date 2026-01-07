@@ -4,7 +4,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import workshopsRouter from "./routes/workshops.js";
 import bookingsRouter from "./routes/bookings.js";
-import recipesRouter from "./routes/recipes.js";
 import contactRouter from "./routes/contact.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -49,7 +48,6 @@ app.get("/contact", (req, res) => {
 // API Routes
 app.use("/api/workshops", workshopsRouter);
 app.use("/api/bookings", bookingsRouter);
-app.use("/api/recipes", recipesRouter);
 app.use("/api/contact", contactRouter);
 
 // Health check endpoint
