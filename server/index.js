@@ -2,12 +2,17 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
+import connection from "./database/db.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Database connection is established when db.js is imported
+// The connection object is available for use in routes
+const db = connection;
 
 // Middleware
 app.use(cors());
