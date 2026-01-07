@@ -2,17 +2,16 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-import connection from "./database/db.js";
+import workshopsRouter from "./routes/workshops.js";
+import bookingsRouter from "./routes/bookings.js";
+import recipesRouter from "./routes/recipes.js";
+import contactRouter from "./routes/contact.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// Database connection is established when db.js is imported
-// The connection object is available for use in routes
-const db = connection;
 
 // Middleware
 app.use(cors());
@@ -46,6 +45,12 @@ app.get("/book", (req, res) => {
 app.get("/contact", (req, res) => {
 	res.sendFile(path.join(__dirname, "../client/pages/contact.html"));
 });
+
+// API Routes
+app.use("/api/workshops", workshopsRouter);
+app.use("/api/bookings", bookingsRouter);
+app.use("/api/recipes", recipesRouter);
+app.use("/api/contact", contactRouter);
 
 // Health check endpoint
 app.get("/health", (req, res) => {
