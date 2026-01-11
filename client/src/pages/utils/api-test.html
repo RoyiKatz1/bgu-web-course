@@ -637,6 +637,123 @@
             <button onclick="deleteContactMessage()">Delete Message</button>
             <div id="contact-delete-response" class="response-section hidden"></div>
         </div>
+
+        <!-- Testimonials -->
+        <div class="endpoint-section">
+            <div class="endpoint-header">
+                <span class="method-badge method-get">GET</span>
+                <span class="endpoint-title">Get All Testimonials</span>
+            </div>
+            <div class="endpoint-url">/api/testimonials</div>
+            <button onclick="getAllTestimonials()">Get All Testimonials</button>
+            <div id="testimonials-get-all-response" class="response-section hidden"></div>
+        </div>
+
+        <div class="endpoint-section">
+            <div class="endpoint-header">
+                <span class="method-badge method-get">GET</span>
+                <span class="endpoint-title">Get Approved Testimonials</span>
+            </div>
+            <div class="endpoint-url">/api/testimonials/approved</div>
+            <button onclick="getApprovedTestimonials()">Get Approved Testimonials</button>
+            <div id="testimonials-get-approved-response" class="response-section hidden"></div>
+        </div>
+
+        <div class="endpoint-section">
+            <div class="endpoint-header">
+                <span class="method-badge method-get">GET</span>
+                <span class="endpoint-title">Get Testimonial by ID</span>
+            </div>
+            <div class="endpoint-url">/api/testimonials/:id</div>
+            <div class="form-group">
+                <label>Testimonial ID:</label>
+                <input type="number" id="testimonial-id" placeholder="Enter testimonial ID" value="1">
+            </div>
+            <button onclick="getTestimonialById()">Get Testimonial</button>
+            <div id="testimonials-get-id-response" class="response-section hidden"></div>
+        </div>
+
+        <div class="endpoint-section">
+            <div class="endpoint-header">
+                <span class="method-badge method-post">POST</span>
+                <span class="endpoint-title">Create Testimonial</span>
+            </div>
+            <div class="endpoint-url">/api/testimonials</div>
+            <div class="form-group">
+                <label>Person Name:</label>
+                <input type="text" id="testimonial-name" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>Quote:</label>
+                <textarea id="testimonial-quote" placeholder="Testimonial quote..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Is Approved:</label>
+                <select id="testimonial-approved">
+                    <option value="false">False</option>
+                    <option value="true">True</option>
+                </select>
+            </div>
+            <button onclick="createTestimonial()">Create Testimonial</button>
+            <div id="testimonials-post-response" class="response-section hidden"></div>
+        </div>
+
+        <div class="endpoint-section">
+            <div class="endpoint-header">
+                <span class="method-badge method-put">PUT</span>
+                <span class="endpoint-title">Update Testimonial</span>
+            </div>
+            <div class="endpoint-url">/api/testimonials/:id</div>
+            <div class="form-group">
+                <label>Testimonial ID:</label>
+                <input type="number" id="testimonial-update-id" placeholder="Enter testimonial ID">
+            </div>
+            <div class="form-group">
+                <label>Person Name:</label>
+                <input type="text" id="testimonial-update-name" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>Quote:</label>
+                <textarea id="testimonial-update-quote" placeholder="Testimonial quote..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Is Approved:</label>
+                <select id="testimonial-update-approved">
+                    <option value="false">False</option>
+                    <option value="true">True</option>
+                </select>
+            </div>
+            <button onclick="updateTestimonial()">Update Testimonial</button>
+            <div id="testimonials-put-response" class="response-section hidden"></div>
+        </div>
+
+        <div class="endpoint-section">
+            <div class="endpoint-header">
+                <span class="method-badge method-put">PUT</span>
+                <span class="endpoint-title">Approve Testimonial</span>
+            </div>
+            <div class="endpoint-url">/api/testimonials/:id/approve</div>
+            <div class="form-group">
+                <label>Testimonial ID:</label>
+                <input type="number" id="testimonial-approve-id" placeholder="Enter testimonial ID">
+            </div>
+            <button onclick="approveTestimonial()">Approve Testimonial</button>
+            <div id="testimonials-approve-response" class="response-section hidden"></div>
+        </div>
+
+        <div class="endpoint-section">
+            <div class="endpoint-header">
+                <span class="method-badge method-delete">DELETE</span>
+                <span class="endpoint-title">Delete Testimonial</span>
+            </div>
+            <div class="endpoint-url">/api/testimonials/:id</div>
+            <div class="form-group">
+                <label>Testimonial ID:</label>
+                <input type="number" id="testimonial-delete-id" placeholder="Enter testimonial ID">
+            </div>
+            <button onclick="deleteTestimonial()">Delete Testimonial</button>
+            <div id="testimonials-delete-response" class="response-section hidden"></div>
+        </div>
     </div>
 
     <script>
@@ -953,6 +1070,119 @@
                 displayResponse('contact-delete-response', data, response.status);
             } catch (error) {
                 handleError('contact-delete-response', error);
+            }
+        }
+
+        // Testimonials
+        async function getAllTestimonials() {
+            try {
+                const response = await fetch(`${API_BASE}/api/testimonials`);
+                const data = await response.json();
+                displayResponse('testimonials-get-all-response', data, response.status);
+            } catch (error) {
+                handleError('testimonials-get-all-response', error);
+            }
+        }
+
+        async function getApprovedTestimonials() {
+            try {
+                const response = await fetch(`${API_BASE}/api/testimonials/approved`);
+                const data = await response.json();
+                displayResponse('testimonials-get-approved-response', data, response.status);
+            } catch (error) {
+                handleError('testimonials-get-approved-response', error);
+            }
+        }
+
+        async function getTestimonialById() {
+            const id = document.getElementById('testimonial-id').value;
+            if (!id) {
+                alert('Please enter a testimonial ID');
+                return;
+            }
+            try {
+                const response = await fetch(`${API_BASE}/api/testimonials/${id}`);
+                const data = await response.json();
+                displayResponse('testimonials-get-id-response', data, response.status);
+            } catch (error) {
+                handleError('testimonials-get-id-response', error);
+            }
+        }
+
+        async function createTestimonial() {
+            const testimonial = {
+                person_name: document.getElementById('testimonial-name').value,
+                quote: document.getElementById('testimonial-quote').value,
+                is_approved: document.getElementById('testimonial-approved').value === 'true'
+            };
+            try {
+                const response = await fetch(`${API_BASE}/api/testimonials`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testimonial)
+                });
+                const data = await response.json();
+                displayResponse('testimonials-post-response', data, response.status);
+            } catch (error) {
+                handleError('testimonials-post-response', error);
+            }
+        }
+
+        async function updateTestimonial() {
+            const id = document.getElementById('testimonial-update-id').value;
+            if (!id) {
+                alert('Please enter a testimonial ID');
+                return;
+            }
+            const testimonial = {
+                person_name: document.getElementById('testimonial-update-name').value,
+                quote: document.getElementById('testimonial-update-quote').value,
+                is_approved: document.getElementById('testimonial-update-approved').value === 'true'
+            };
+            try {
+                const response = await fetch(`${API_BASE}/api/testimonials/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testimonial)
+                });
+                const data = await response.json();
+                displayResponse('testimonials-put-response', data, response.status);
+            } catch (error) {
+                handleError('testimonials-put-response', error);
+            }
+        }
+
+        async function approveTestimonial() {
+            const id = document.getElementById('testimonial-approve-id').value;
+            if (!id) {
+                alert('Please enter a testimonial ID');
+                return;
+            }
+            try {
+                const response = await fetch(`${API_BASE}/api/testimonials/${id}/approve`, {
+                    method: 'PUT'
+                });
+                const data = await response.json();
+                displayResponse('testimonials-approve-response', data, response.status);
+            } catch (error) {
+                handleError('testimonials-approve-response', error);
+            }
+        }
+
+        async function deleteTestimonial() {
+            const id = document.getElementById('testimonial-delete-id').value;
+            if (!id) {
+                alert('Please enter a testimonial ID');
+                return;
+            }
+            try {
+                const response = await fetch(`${API_BASE}/api/testimonials/${id}`, {
+                    method: 'DELETE'
+                });
+                const data = await response.json();
+                displayResponse('testimonials-delete-response', data, response.status);
+            } catch (error) {
+                handleError('testimonials-delete-response', error);
             }
         }
 
