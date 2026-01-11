@@ -235,8 +235,8 @@
             <div class="endpoint-url">/api/workshops</div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Title:</label>
-                    <input type="text" id="workshop-title" placeholder="Workshop Title">
+                    <label>Name:</label>
+                    <input type="text" id="workshop-name" placeholder="Workshop Name">
                 </div>
                 <div class="form-group">
                     <label>Slug:</label>
@@ -249,11 +249,11 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Image Path:</label>
+                    <label>Image:</label>
                     <input type="text" id="workshop-image" placeholder="/images/workshop.jpg">
                 </div>
                 <div class="form-group">
-                    <label>Price per Person:</label>
+                    <label>Price:</label>
                     <input type="number" id="workshop-price" placeholder="100" step="0.01">
                 </div>
                 <div class="form-group">
@@ -263,6 +263,24 @@
                 <div class="form-group">
                     <label>Duration (minutes):</label>
                     <input type="number" id="workshop-duration" placeholder="120">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input type="date" id="workshop-date">
+                </div>
+                <div class="form-group">
+                    <label>Time:</label>
+                    <input type="time" id="workshop-time">
+                </div>
+                <div class="form-group">
+                    <label>Instructor:</label>
+                    <input type="text" id="workshop-instructor" placeholder="Instructor Name">
+                </div>
+                <div class="form-group">
+                    <label>Address:</label>
+                    <input type="text" id="workshop-address" placeholder="Workshop Address">
                 </div>
             </div>
             <button onclick="createWorkshop()">Create Workshop</button>
@@ -281,8 +299,8 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Title:</label>
-                    <input type="text" id="workshop-update-title" placeholder="Workshop Title">
+                    <label>Name:</label>
+                    <input type="text" id="workshop-update-name" placeholder="Workshop Name">
                 </div>
                 <div class="form-group">
                     <label>Slug:</label>
@@ -295,11 +313,11 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Image Path:</label>
+                    <label>Image:</label>
                     <input type="text" id="workshop-update-image" placeholder="/images/workshop.jpg">
                 </div>
                 <div class="form-group">
-                    <label>Price per Person:</label>
+                    <label>Price:</label>
                     <input type="number" id="workshop-update-price" placeholder="100" step="0.01">
                 </div>
                 <div class="form-group">
@@ -316,6 +334,24 @@
                         <option value="true">True</option>
                         <option value="false">False</option>
                     </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input type="date" id="workshop-update-date">
+                </div>
+                <div class="form-group">
+                    <label>Time:</label>
+                    <input type="time" id="workshop-update-time">
+                </div>
+                <div class="form-group">
+                    <label>Instructor:</label>
+                    <input type="text" id="workshop-update-instructor" placeholder="Instructor Name">
+                </div>
+                <div class="form-group">
+                    <label>Address:</label>
+                    <input type="text" id="workshop-update-address" placeholder="Workshop Address">
                 </div>
             </div>
             <button onclick="updateWorkshop()">Update Workshop</button>
@@ -369,8 +405,8 @@
             <div class="endpoint-url">/api/bookings</div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Workshop Session ID:</label>
-                    <input type="number" id="booking-session-id" placeholder="1">
+                    <label>Workshop ID:</label>
+                    <input type="number" id="booking-workshop-id" placeholder="1">
                 </div>
                 <div class="form-group">
                     <label>Customer Name:</label>
@@ -397,8 +433,32 @@
                     <input type="number" id="booking-price" placeholder="200" step="0.01">
                 </div>
                 <div class="form-group">
-                    <label>Booking Date:</label>
-                    <input type="date" id="booking-date">
+                    <label>Status:</label>
+                    <select id="booking-status">
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="cancelled">Cancelled</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Payment Status:</label>
+                    <select id="booking-payment-status">
+                        <option value="pending">Pending</option>
+                        <option value="paid">Paid</option>
+                        <option value="refunded">Refunded</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Booking Reference:</label>
+                    <input type="text" id="booking-reference" placeholder="REF-12345">
+                </div>
+                <div class="form-group">
+                    <label>Notes:</label>
+                    <input type="text" id="booking-notes" placeholder="Internal notes">
                 </div>
             </div>
             <div class="form-group">
@@ -450,11 +510,25 @@
                         <option value="pending">Pending</option>
                         <option value="confirmed">Confirmed</option>
                         <option value="cancelled">Cancelled</option>
+                        <option value="completed">Completed</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Booking Date:</label>
-                    <input type="date" id="booking-update-date">
+                    <label>Payment Status:</label>
+                    <select id="booking-update-payment-status">
+                        <option value="pending">Pending</option>
+                        <option value="paid">Paid</option>
+                        <option value="refunded">Refunded</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Booking Reference:</label>
+                    <input type="text" id="booking-update-reference" placeholder="REF-12345">
+                </div>
+                <div class="form-group">
+                    <label>Notes:</label>
+                    <input type="text" id="booking-update-notes" placeholder="Internal notes">
                 </div>
             </div>
             <div class="form-group">
@@ -625,13 +699,17 @@
 
         async function createWorkshop() {
             const workshop = {
-                title: document.getElementById('workshop-title').value,
+                name: document.getElementById('workshop-name').value,
                 slug: document.getElementById('workshop-slug').value,
                 description: document.getElementById('workshop-description').value,
-                image_path: document.getElementById('workshop-image').value,
-                price_per_person: parseFloat(document.getElementById('workshop-price').value),
+                image: document.getElementById('workshop-image').value,
+                price: parseFloat(document.getElementById('workshop-price').value),
                 capacity: parseInt(document.getElementById('workshop-capacity').value),
-                duration_minutes: parseInt(document.getElementById('workshop-duration').value)
+                duration_minutes: parseInt(document.getElementById('workshop-duration').value),
+                date: document.getElementById('workshop-date').value,
+                time: document.getElementById('workshop-time').value,
+                instructor: document.getElementById('workshop-instructor').value,
+                address: document.getElementById('workshop-address').value
             };
             try {
                 const response = await fetch(`${API_BASE}/api/workshops`, {
@@ -653,14 +731,18 @@
                 return;
             }
             const workshop = {
-                title: document.getElementById('workshop-update-title').value,
+                name: document.getElementById('workshop-update-name').value,
                 slug: document.getElementById('workshop-update-slug').value,
                 description: document.getElementById('workshop-update-description').value,
-                image_path: document.getElementById('workshop-update-image').value,
-                price_per_person: parseFloat(document.getElementById('workshop-update-price').value),
+                image: document.getElementById('workshop-update-image').value,
+                price: parseFloat(document.getElementById('workshop-update-price').value),
                 capacity: parseInt(document.getElementById('workshop-update-capacity').value),
                 duration_minutes: parseInt(document.getElementById('workshop-update-duration').value),
-                is_active: document.getElementById('workshop-update-active').value === 'true'
+                is_active: document.getElementById('workshop-update-active').value === 'true',
+                date: document.getElementById('workshop-update-date').value,
+                time: document.getElementById('workshop-update-time').value,
+                instructor: document.getElementById('workshop-update-instructor').value,
+                address: document.getElementById('workshop-update-address').value
             };
             try {
                 const response = await fetch(`${API_BASE}/api/workshops/${id}`, {
@@ -720,14 +802,17 @@
 
         async function createBooking() {
             const booking = {
-                workshop_session_id: parseInt(document.getElementById('booking-session-id').value),
+                workshop_id: parseInt(document.getElementById('booking-workshop-id').value),
                 customer_name: document.getElementById('booking-name').value,
                 customer_email: document.getElementById('booking-email').value,
                 customer_phone: document.getElementById('booking-phone').value,
                 number_of_participants: parseInt(document.getElementById('booking-participants').value),
                 special_requests: document.getElementById('booking-requests').value,
                 total_price: parseFloat(document.getElementById('booking-price').value),
-                booking_date: document.getElementById('booking-date').value || new Date().toISOString().split('T')[0]
+                status: document.getElementById('booking-status').value,
+                payment_status: document.getElementById('booking-payment-status').value,
+                booking_reference: document.getElementById('booking-reference').value,
+                notes: document.getElementById('booking-notes').value
             };
             try {
                 const response = await fetch(`${API_BASE}/api/bookings`, {
@@ -756,7 +841,9 @@
                 special_requests: document.getElementById('booking-update-requests').value,
                 total_price: parseFloat(document.getElementById('booking-update-price').value),
                 status: document.getElementById('booking-update-status').value,
-                booking_date: document.getElementById('booking-update-date').value || new Date().toISOString().split('T')[0]
+                payment_status: document.getElementById('booking-update-payment-status').value,
+                booking_reference: document.getElementById('booking-update-reference').value,
+                notes: document.getElementById('booking-update-notes').value
             };
             try {
                 const response = await fetch(`${API_BASE}/api/bookings/${id}`, {
@@ -869,11 +956,15 @@
             }
         }
 
-        // Set today's date as default for booking date fields
+        // Set today's date as default for workshop date fields
         document.addEventListener('DOMContentLoaded', () => {
             const today = new Date().toISOString().split('T')[0];
-            document.getElementById('booking-date').value = today;
-            document.getElementById('booking-update-date').value = today;
+            const now = new Date();
+            const timeString = now.toTimeString().slice(0, 5); // HH:MM format
+            document.getElementById('workshop-date').value = today;
+            document.getElementById('workshop-time').value = timeString;
+            document.getElementById('workshop-update-date').value = today;
+            document.getElementById('workshop-update-time').value = timeString;
         });
     </script>
 </body>

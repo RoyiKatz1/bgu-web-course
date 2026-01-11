@@ -76,6 +76,10 @@ router.post("/", async (req, res) => {
 			number_of_participants,
 			special_requests,
 			total_price,
+			status,
+			payment_status,
+			booking_reference,
+			notes,
 		} = req.body;
 
 		const { data, error } = await supabase
@@ -89,6 +93,10 @@ router.post("/", async (req, res) => {
 					number_of_participants,
 					special_requests,
 					total_price,
+					status,
+					payment_status,
+					booking_reference,
+					notes,
 				},
 			])
 			.select()
@@ -133,6 +141,8 @@ router.put("/:id", async (req, res) => {
 			total_price,
 			status,
 			payment_status,
+			booking_reference,
+			notes,
 		} = req.body;
 
 		const { data, error } = await supabase
@@ -146,6 +156,8 @@ router.put("/:id", async (req, res) => {
 				total_price,
 				status,
 				payment_status,
+				booking_reference,
+				notes,
 			})
 			.eq("id", id)
 			.select()
