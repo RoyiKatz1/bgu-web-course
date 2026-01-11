@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import workshopsRouter from "./routes/workshops.js";
 import bookingsRouter from "./routes/bookings.js";
 import contactRouter from "./routes/contact.js";
+import testimonialsRouter from "./routes/testimonials.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -125,6 +126,7 @@ app.get("/api-test", (req, res) => {
 app.use("/api/workshops", workshopsRouter);
 app.use("/api/bookings", bookingsRouter);
 app.use("/api/contact", contactRouter);
+app.use("/api/testimonials", testimonialsRouter);
 
 // Health check endpoint
 app.get("/health", (req, res) => {
