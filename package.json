@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "home assignment for full stack web development course",
   "type": "module",
-  "main": "server/index.js",
+  "main": "server/src/index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "nodemon server/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
