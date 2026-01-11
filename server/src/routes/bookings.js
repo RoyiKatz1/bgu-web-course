@@ -8,7 +8,8 @@ router.get("/", async (req, res) => {
 	try {
 		const { data, error } = await supabase
 			.from("bookings")
-			.select(`
+			.select(
+				`
 				*,
 				workshops (
 					id,
@@ -18,7 +19,8 @@ router.get("/", async (req, res) => {
 					address,
 					price
 				)
-			`)
+			`
+			)
 			.order("created_at", { ascending: false });
 
 		if (error) {
@@ -37,7 +39,8 @@ router.get("/:id", async (req, res) => {
 		const { id } = req.params;
 		const { data, error } = await supabase
 			.from("bookings")
-			.select(`
+			.select(
+				`
 				*,
 				workshops (
 					id,
@@ -47,7 +50,8 @@ router.get("/:id", async (req, res) => {
 					address,
 					price
 				)
-			`)
+			`
+			)
 			.eq("id", id)
 			.single();
 
@@ -117,7 +121,10 @@ router.post("/", async (req, res) => {
 
 				// If RPC doesn't exist, just continue (available_spots might be calculated differently)
 				if (updateError && !updateError.message.includes("function")) {
-					console.warn("Could not update workshop spots:", updateError.message);
+					console.warn(
+						"Could not update workshop spots:",
+						updateError.message
+					);
 				}
 			}
 
