@@ -1,10 +1,12 @@
 import dotenv from "dotenv";
 
+// Load .env from project root (dotenv looks in process.cwd() by default)
 dotenv.config();
 
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
+
 export default {
-	HOST: process.env.DB_HOST || "localhost",
-	USER: process.env.DB_USER || "root",
-	PASSWORD: process.env.DB_PASSWORD || "",
-	DB: process.env.DB_NAME || "mysql",
+	SUPABASE_URL,
+	SUPABASE_SERVICE_KEY,
 };

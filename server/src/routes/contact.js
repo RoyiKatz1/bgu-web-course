@@ -1,79 +1,117 @@
 import express from "express";
-import connection from "../database/db.js";
+import supabase from "../database/db.js";
 
 const router = express.Router();
 
 // GET all messages
-router.get("/", (req, res) => {
-	const query = "SELECT * FROM contact_messages ORDER BY created_at DESC";
-	connection.query(query, (error, results) => {
+router.get("/", async (req, res) => {
+	try {
+		const { data, error } = await supabase
+			.from("contact_messages")
+			.select("*")
+			.order("created_at", { ascending: false });
+
 		if (error) {
 			res.status(500).json({ error: error.message });
 		} else {
-			res.json(results);
+			res.json(data);
 		}
-	});
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
 });
 
 // GET message by ID
-router.get("/:id", (req, res) => {
-	const { id } = req.params;
-	const query = "SELECT * FROM contact_messages WHERE id = ?";
-	connection.query(query, [id], (error, results) => {
+router.get("/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+		const { data, error } = await supabase
+			.from("contact_messages")
+			.select("*")
+			.eq("id", id)
+			.single();
+
 		if (error) {
-			res.status(500).json({ error: error.message });
-		} else if (results.length === 0) {
-			res.status(404).json({ error: "Message not found" });
+			if (error.code === "PGRST116") {
+				res.status(404).json({ error: "Message not found" });
+			} else {
+				res.status(500).json({ error: error.message });
+			}
 		} else {
-			res.json(results[0]);
+			res.json(data);
 		}
-	});
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
 });
 
 // POST create new message
-router.post("/", (req, res) => {
-	const { name, phone, email, subject, message } = req.body;
-	const query = `
-		INSERT INTO contact_messages (name, phone, email, subject, message)
-		VALUES (?, ?, ?, ?, ?)
-	`;
-	connection.query(
-		query,
-		[name, phone, email, subject, message],
-		(error, results) => {
-			if (error) {
-				res.status(500).json({ error: error.message });
-			} else {
-				res.status(201).json({ id: results.insertId, ...req.body });
-			}
-		}
-	);
-});
+router.post("/", async (req, res) => {
+	try {
+		const { name, phone, email, subject, message } = req.body;
 
-// PUT mark message as read
-router.put("/:id/read", (req, res) => {
-	const { id } = req.params;
-	const query = "UPDATE contact_messages SET is_read = TRUE WHERE id = ?";
-	connection.query(query, [id], (error, results) => {
+		const { data, error } = await supabase
+			.from("contact_messages")
+			.insert([
+				{
+					name,
+					phone,
+					email,
+					subject,
+					message,
+				},
+			])
+			.select()
+			.single();
+
 		if (error) {
 			res.status(500).json({ error: error.message });
 		} else {
-			res.json({ id, is_read: true });
+			res.status(201).json(data);
 		}
-	});
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+
+// PUT mark message as read
+router.put("/:id/read", async (req, res) => {
+	try {
+		const { id } = req.params;
+		const { data, error } = await supabase
+			.from("contact_messages")
+			.update({ is_read: true })
+			.eq("id", id)
+			.select()
+			.single();
+
+		if (error) {
+			res.status(500).json({ error: error.message });
+		} else {
+			res.json(data);
+		}
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
 });
 
 // DELETE message
-router.delete("/:id", (req, res) => {
-	const { id } = req.params;
-	const query = "DELETE FROM contact_messages WHERE id = ?";
-	connection.query(query, [id], (error, results) => {
+router.delete("/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+		const { error } = await supabase
+			.from("contact_messages")
+			.delete()
+			.eq("id", id);
+
 		if (error) {
 			res.status(500).json({ error: error.message });
 		} else {
 			res.json({ id, deleted: true });
 		}
-	});
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
 });
 
 export default router;
