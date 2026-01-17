@@ -88,26 +88,6 @@ function createWorkshopCard(workshop) {
 }
 
 /**
- * Format date from YYYY-MM-DD to DD/MM/YYYY
- * @param {string} dateString - Date string in YYYY-MM-DD format
- * @returns {string} Formatted date string in DD/MM/YYYY format
- */
-function formatDate(dateString) {
-	if (!dateString) return "";
-
-	try {
-		const date = new Date(dateString + "T00:00:00"); // Add time to avoid timezone issues
-		const day = String(date.getDate()).padStart(2, "0");
-		const month = String(date.getMonth() + 1).padStart(2, "0");
-		const year = date.getFullYear();
-		return `${day}/${month}/${year}`;
-	} catch (error) {
-		console.error("Error formatting date:", error);
-		return dateString;
-	}
-}
-
-/**
  * Format time from HH:MM:SS to HH:MM
  * @param {string} timeString - Time string (HH:MM:SS or HH:MM)
  * @returns {string} Formatted time string in HH:MM format

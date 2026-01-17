@@ -228,15 +228,3 @@ async function submitBooking(formData) {
 		}
 	}
 }
-
-/**
- * Format date from YYYY-MM-DD to DD/MM/YYYY
- */
-function formatDate(dateString) {
-	if (!dateString) return "";
-	const date = new Date(dateString + "T00:00:00"); // Add time to avoid timezone issues
-	const day = String(date.getDate()).padStart(2, "0");
-	const month = String(date.getMonth() + 1).padStart(2, "0");
-	const year = date.getFullYear();
-	return `${day}/${month}/${year}`;
-}
