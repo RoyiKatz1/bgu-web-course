@@ -21,6 +21,21 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files from client folder (CSS, JS, images)
 const clientSrcPath = path.join(__dirname, "../../client/src");
 
+// Serve favicon from client/public (must be before other static routes)
+const clientPublicPath = path.join(__dirname, "../../client/public");
+app.get("/favicon.ico", (req, res) => {
+	const faviconPath = path.join(clientPublicPath, "favicon.ico");
+	res.type("image/x-icon");
+	// Set cache headers to prevent stale favicon caching
+	res.setHeader("Cache-Control", "public, max-age=31536000");
+	res.sendFile(path.resolve(faviconPath), (err) => {
+		if (err) {
+			console.error("Error serving favicon:", err);
+			res.status(404).send("Favicon not found");
+		}
+	});
+});
+
 // Serve assets directly (images, etc.)
 app.use("/assets", express.static(path.join(clientSrcPath, "assets")));
 

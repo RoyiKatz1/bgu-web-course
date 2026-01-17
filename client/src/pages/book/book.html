@@ -1,135 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+		<title>Mixology Hub - הזמנה</title>
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/book.css" />
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mixology Hub - הזמנה</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/book.css">
-</head>
+	<body>
+		<header class="header">
+			<div class="container">
+				<div class="header__content">
+					<div class="logo">
+						<a
+							href="/"
+							style="text-decoration: none; color: inherit"
+						>
+							<h1>Mixology Hub</h1>
+						</a>
+					</div>
+					<nav class="nav">
+						<ul class="nav__list">
+							<li><a href="/" class="nav__link">בית</a></li>
+							<li>
+								<a href="/workshops" class="nav__link"
+									>סדנאות</a
+								>
+							</li>
+							<li>
+								<a href="/recipes" class="nav__link">מתכונים</a>
+							</li>
+							<li>
+								<a
+									href="/book"
+									class="nav__link nav__link--active"
+									>הזמנה</a
+								>
+							</li>
+							<li>
+								<a href="/contact" class="nav__link">צור קשר</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
 
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="header__content">
-                <div class="logo">
-                    <a href="/" style="text-decoration: none; color: inherit;">
-                        <h1>Mixology Hub</h1>
-                    </a>
-                </div>
-                <nav class="nav">
-                    <ul class="nav__list">
-                        <li><a href="/" class="nav__link">בית</a></li>
-                        <li><a href="/workshops" class="nav__link">סדנאות</a></li>
-                        <li><a href="/recipes" class="nav__link">מתכונים</a></li>
-                        <li><a href="/book" class="nav__link nav__link--active">הזמנה</a></li>
-                        <li><a href="/contact" class="nav__link">צור קשר</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+		<main>
+			<section class="page-header">
+				<div class="container">
+					<h1 class="page-title">הזמנת סדנה</h1>
+					<p class="page-subtitle">
+						מלאו את הפרטים הבאים כדי להזמין מקום בסדנה
+					</p>
+				</div>
+			</section>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title">הזמנת סדנה</h1>
-                <p class="page-subtitle">מלאו את הפרטים הבאים כדי להזמין מקום בסדנה</p>
-            </div>
-        </section>
+			<section class="booking-form-section">
+				<div class="container">
+					<div class="form-container">
+						<form id="bookingForm" class="booking-form">
+							<div class="form-group">
+								<label for="fullName" class="form-label"
+									>שם מלא
+									<span class="required">*</span></label
+								>
+								<input
+									type="text"
+									id="fullName"
+									name="fullName"
+									class="form-input"
+									required
+								/>
+								<span
+									class="error-message"
+									id="fullNameError"
+								></span>
+							</div>
 
-        <section class="booking-form-section">
-            <div class="container">
-                <div class="form-container">
-                    <form id="bookingForm" class="booking-form">
-                        <div class="form-group">
-                            <label for="fullName" class="form-label">שם מלא <span class="required">*</span></label>
-                            <input type="text" id="fullName" name="fullName" class="form-input" required>
-                            <span class="error-message" id="fullNameError"></span>
-                        </div>
+							<div class="form-group">
+								<label for="phone" class="form-label"
+									>מספר טלפון
+									<span class="required">*</span></label
+								>
+								<input
+									type="tel"
+									id="phone"
+									name="phone"
+									class="form-input"
+									placeholder="050-1234567"
+									required
+								/>
+								<span
+									class="error-message"
+									id="phoneError"
+								></span>
+							</div>
 
-                        <div class="form-group">
-                            <label for="phone" class="form-label">מספר טלפון <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="050-1234567"
-                                required>
-                            <span class="error-message" id="phoneError"></span>
-                        </div>
+							<div class="form-group">
+								<label for="email" class="form-label"
+									>אימייל
+									<span class="required">*</span></label
+								>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									class="form-input"
+									placeholder="example@email.com"
+									required
+								/>
+								<span
+									class="error-message"
+									id="emailError"
+								></span>
+							</div>
 
-                        <div class="form-group">
-                            <label for="email" class="form-label">אימייל <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" class="form-input"
-                                placeholder="example@email.com" required>
-                            <span class="error-message" id="emailError"></span>
-                        </div>
+							<div class="form-group">
+								<label for="participants" class="form-label"
+									>מספר משתתפים
+									<span class="required">*</span></label
+								>
+								<input
+									type="number"
+									id="participants"
+									name="participants"
+									class="form-input"
+									min="1"
+									max="30"
+									required
+								/>
+								<span
+									class="error-message"
+									id="participantsError"
+								></span>
+							</div>
 
-                        <div class="form-group">
-                            <label for="participants" class="form-label">מספר משתתפים <span
-                                    class="required">*</span></label>
-                            <input type="number" id="participants" name="participants" class="form-input" min="1"
-                                max="30" required>
-                            <span class="error-message" id="participantsError"></span>
-                        </div>
+							<div class="form-group">
+								<label for="workshop" class="form-label"
+									>בחירת סדנה
+									<span class="required">*</span></label
+								>
+								<select
+									id="workshop"
+									name="workshop"
+									class="form-input"
+									required
+								>
+									<option value="">בחרו סדנה</option>
+									<option value="classic">
+										סדנת קוקטיילים קלאסיים
+									</option>
+									<option value="modern">
+										סדנת קוקטיילים מודרניים
+									</option>
+									<option value="non-alcoholic">
+										סדנת קוקטיילים ללא אלכוהול
+									</option>
+									<option value="advanced">
+										סדנת קוקטיילים למתקדמים
+									</option>
+									<option value="couples">
+										סדנת קוקטיילים לזוגות
+									</option>
+								</select>
+								<span
+									class="error-message"
+									id="workshopError"
+								></span>
+							</div>
 
-                        <div class="form-group">
-                            <label for="workshop" class="form-label">בחירת סדנה <span class="required">*</span></label>
-                            <select id="workshop" name="workshop" class="form-input" required>
-                                <option value="">בחרו סדנה</option>
-                                <option value="classic">סדנת קוקטיילים קלאסיים</option>
-                                <option value="modern">סדנת קוקטיילים מודרניים</option>
-                                <option value="non-alcoholic">סדנת קוקטיילים ללא אלכוהול</option>
-                                <option value="advanced">סדנת קוקטיילים למתקדמים</option>
-                                <option value="couples">סדנת קוקטיילים לזוגות</option>
-                            </select>
-                            <span class="error-message" id="workshopError"></span>
-                        </div>
+							<div class="form-group">
+								<label for="specialRequests" class="form-label"
+									>בקשות מיוחדות</label
+								>
+								<textarea
+									id="specialRequests"
+									name="specialRequests"
+									class="form-input form-textarea"
+									rows="4"
+									placeholder="השאירו הודעה אם יש לכם בקשות מיוחדות..."
+								></textarea>
+							</div>
 
-                        <div class="form-group">
-                            <label for="specialRequests" class="form-label">בקשות מיוחדות</label>
-                            <textarea id="specialRequests" name="specialRequests" class="form-input form-textarea"
-                                rows="4" placeholder="השאירו הודעה אם יש לכם בקשות מיוחדות..."></textarea>
-                        </div>
+							<div class="form-group">
+								<button
+									type="submit"
+									class="btn btn--primary btn--full"
+								>
+									אשר הזמנה
+								</button>
+							</div>
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn--primary btn--full">אשר הזמנה</button>
-                        </div>
+							<div id="formMessage" class="form-message"></div>
+						</form>
+					</div>
+				</div>
+			</section>
+		</main>
 
-                        <div id="formMessage" class="form-message"></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__content">
+					<div class="footer__section">
+						<h3>Mixology Hub</h3>
+						<p>שלוט באמנות הקוקטיילים</p>
+					</div>
+					<div class="footer__section">
+						<h4>צור קשר</h4>
+						<p>אימייל: info@mixologyhub.com</p>
+						<p>טלפון: (555) 123-4567</p>
+					</div>
+					<div class="footer__section">
+						<h4>עקבו אחרינו</h4>
+						<div class="footer__social">
+							<a href="#" class="footer__social-link">פייסבוק</a>
+							<a href="#" class="footer__social-link">אינסטגרם</a>
+							<a href="#" class="footer__social-link">טוויטר</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer__copyright">
+					<p>&copy; 2025 Mixology Hub. כל הזכויות שמורות.</p>
+				</div>
+			</div>
+		</footer>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>Mixology Hub</h3>
-                    <p>שלוט באמנות הקוקטיילים</p>
-                </div>
-                <div class="footer__section">
-                    <h4>צור קשר</h4>
-                    <p>אימייל: info@mixologyhub.com</p>
-                    <p>טלפון: (555) 123-4567</p>
-                </div>
-                <div class="footer__section">
-                    <h4>עקבו אחרינו</h4>
-                    <div class="footer__social">
-                        <a href="#" class="footer__social-link">פייסבוק</a>
-                        <a href="#" class="footer__social-link">אינסטגרם</a>
-                        <a href="#" class="footer__social-link">טוויטר</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__copyright">
-                <p>&copy; 2025 Mixology Hub. כל הזכויות שמורות.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/js/form-validation.js"></script>
-    <script src="/js/book.js"></script>
-</body>
-
+		<script src="/js/form-validation.js"></script>
+		<script src="/js/book.js"></script>
+	</body>
 </html>
