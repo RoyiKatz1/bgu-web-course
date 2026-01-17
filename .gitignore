@@ -100,3 +100,6 @@ out/
 
 # database
 SQL/
+
+# specs files
+specs.md
